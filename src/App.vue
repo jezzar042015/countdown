@@ -1,22 +1,30 @@
 <template>
-  <div>
-    <div v-if="secondsRemaining > 0">
-      <div>
-        <span>{{ h1 }}</span>
-        <span>{{ h2 }}</span>
-        <span>:</span>
-        <span>{{ m1 }}</span>
-        <span>{{ m2 }}</span>
-        <span>:</span>
-        <span>{{ s1 }}</span>
-        <span>{{ s2 }}</span>
+    <template v-if="secondsRemaining > 0">
+      <div id="countdown-timer">
+        <span class="digits">{{ h1 }}</span>
+        <span class="digits">{{ h2 }}</span>
+        <span class="digits">:</span>
+        <span class="digits">{{ m1 }}</span>
+        <span class="digits">{{ m2 }}</span>
+        <span class="digits">:</span>
+        <span class="digits">{{ s1 }}</span>
+        <span class="digits">{{ s2 }}</span>
       </div>
-    </div>
-    <p v-else>Countdown has ended!</p>
-  </div>
+    </template>
+    <template v-else>
+      <div>
+        Countdown has ended!
+      </div>
+    </template>
 </template>
 
 <script>
+
+const startTime = {
+  midweek: 18,
+  weekEnd: 14,
+}
+
 export default {
   data() {
     return {
@@ -46,9 +54,8 @@ export default {
   methods: {
     initExpiration() {
       const date = new Date();
-      this.day = date.getDay();
-      this.isWeekend = this.day > 5;
-      this.endHour = this.isWeekend ? 14 : 24;
+      this.isWeekend = date.getDay() > 5;
+      this.endHour = this.isWeekend ? startTime.weekEnd : startTime.midweek;
     },
     updateDigitValues() {
       const hours = Math.floor(this.secondsRemaining / 3600);
@@ -84,3 +91,22 @@ export default {
   },
 };
 </script>
+
+<style>
+
+#countdown-timer {
+  font-family: 'Courier Prime', monospace;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  background: #333232;
+  color: white;
+}
+
+.digits {
+  font-size: 14em;
+}
+
+</style>
