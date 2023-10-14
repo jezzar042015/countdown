@@ -71,8 +71,8 @@ export default {
       const targetTime = new Date();
 
       // Calculate the target time for the countdown
-      targetTime.setHours(this.endHour, 0, 0, 0);
-      // targetTime.setHours(11, 15, 0, 0);
+      // targetTime.setHours(this.endHour, 0, 0, 0);
+      targetTime.setHours(14, 45, 0, 0);
 
       // Create an interval to update the countdown every 100ms
       const countdownInterval = setInterval(() => {
@@ -95,7 +95,6 @@ export default {
 #countdown-timer
 {
   background: #222020;
-  /* background: green; */
   display: flex;
   width: 100%;
   height: 100%;
@@ -103,16 +102,17 @@ export default {
   justify-content: center;
   align-items: center;
   color: white;
+  user-select: none;
 }
 
 .digits
 {
-  font-size: 14em;
+  font-size: 20vw;
   font-weight: 400;
   /* text-shadow: 1px 1px 5px #8b8b8b; */
 }
 
 .colons
 {
-  font-size: 8em;
+  font-size: 11vw;
 }</style>
