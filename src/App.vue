@@ -71,8 +71,8 @@ export default {
       const targetTime = new Date();
 
       // Calculate the target time for the countdown
-      // targetTime.setHours(this.endHour, 0, 0, 0);
-      targetTime.setHours(14, 45, 0, 0);
+      targetTime.setHours(this.endHour, 0, 0, 0);
+      // targetTime.setHours(14, 45, 0, 0);
 
       // Create an interval to update the countdown every 100ms
       const countdownInterval = setInterval(() => {
