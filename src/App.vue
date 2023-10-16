@@ -42,7 +42,8 @@ export default {
   methods: {
     initExpiration() {
       const date = new Date();
-      this.isWeekend = date.getDay() > 5;
+      this.day = date.getDay()
+      this.isWeekend = [0, 6].includes(this.day);
       this.endHour = this.isWeekend ? startTime.weekEnd : startTime.midweek;
     },
     updateDigitValues() {
@@ -94,7 +95,7 @@ export default {
 
 #countdown-timer
 {
-  background: #222020;
+  background: #1b1b1b;
   display: flex;
   width: 100%;
   height: 100%;
